@@ -1,0 +1,263 @@
+[colors]
+
+color0 =  #3B4252
+red = 	  #BF616A
+orange =  #D08770
+green =   #A3BE8C
+yellow =  #EBCB8B
+blue =    #81A1C1
+magenta = #B48EAD
+cyan = 	  #88C0D0
+white =   #ECEFF4
+
+dark =    #191C23
+
+gray = #FFFFFF
+fulldark = #00000000
+
+
+[bar/main]
+width = 100%
+height = 30
+offset-y = 0
+bottom = false
+fixed-center = true
+wm-restack = i3
+
+override-redirect = false
+
+scroll-up = next
+scroll-down = prev
+
+enable-ipc = true
+
+background = ${colors.dark}
+foreground = ${colors.dark}
+
+font-0 = "InconsolataGo Nerd Font:style=Bold:size=12;2"
+font-1 = "InconsolataGo Nerd Font:style=Bold:size=12;2"
+font-2 = "InconsolataGo Nerd Font:style=Bold:size=13;4"
+font-3 = "InconsolataGo Nerd Font:style=Bold:size=20;4"
+
+modules-left =    space session space i3 space cpu space memory space network 
+modules-center =  game space quartus space paw space eclipse space wolfram
+modules-right =   eth space alsa space date 
+
+tray-background = ${colors.red}
+tray-foreground = ${colors.gray}
+tray-position = 
+tray-maxsize = 15
+tray-detached = false
+cursor-click = 
+cursor-scroll = 
+
+
+
+[module/alsa]
+type = internal/alsa
+
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+master-mixer = Master
+interval = 5
+format-volume = <ramp-volume><label-volume>
+
+format-muted = <label-muted>
+format-muted-prefix = "婢" 
+label-volume = %percentage%%
+
+label-muted = " Muted"
+label-muted-foreground = ${colors.magenta}
+label-muted-background = ${colors.dark}
+
+ramp-volume-foreground = ${colors.magenta}
+ramp-volume-background = ${colors.dark}
+
+label-volume-foreground = ${colors.magenta}
+label-volume-background = ${colors.dark}
+
+ramp-volume-0 = "墳  "
+ramp-volume-1 = "墳  "
+ramp-volume-2 = "墳  " 
+ramp-volume-3 = "墳  " 
+ramp-volume-4 = "墳  " 
+
+ramp-headphones-0 = 墳 
+
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format = <label>
+format-background = ${colors.dark}
+format-prefix = "   " 
+format-prefix-foreground = ${colors.green}
+label = "%percentage%%"
+label-foreground = ${colors.gray}
+
+[module/date]
+type = internal/date
+interval = 1
+
+time = "%d/%m    %T"
+;time-alt = "%a, %b %d %H:%M:%S"
+
+format =   <label>
+format-background = ${colors.dark}
+format-foreground = ${colors.yellow}
+format-padding = 1
+label = %{T2}%time%%{T-}
+
+[module/paw]
+type = custom/text
+
+content = %{T3} %{T-}
+content-foreground = ${colors.green}
+content-background = ${colors.dark}
+click-left =  exec thunar &
+click-right = killall thunar
+
+[module/eclipse]
+type = custom/text
+content = %{T3} %{T-}
+content-foreground = ${colors.yellow}
+content-background = ${colors.dark}
+click-left = exec eclipse &
+click-right = killall eclipse
+
+[module/wolfram]
+type = custom/text
+content = %{T3} %{T-}
+content-foreground = ${colors.red}
+content-background = ${colors.dark}
+click-left = exec mathematica &
+click-right = killall mathematica
+
+[module/quartus]
+type = custom/text
+content = %{T3} %{T-}
+content-foreground = ${colors.blue}
+content-background = ${colors.dark}
+click-left = exec quartus &
+click-right = killall quartus
+
+[module/game]
+type = custom/text
+content = %{T3} %{T-}
+content-foreground = ${colors.magenta}
+content-background = ${colors.dark}
+click-left = exec steam &
+click-right = exec ./.ae.sh &
+
+[module/i3]
+type = internal/i3
+index-sort = true
+
+format = <label-state>
+format-background = ${colors.dark}
+
+label-mode = %mode%
+label-mode-background = #e60053
+label-mode-padding = 1
+
+label-focused =  
+;label-focused-background = ${colors.red}
+label-focused-foreground = ${colors.blue}
+label-focused-padding = 1
+
+label-unfocused =  
+label-unfocused-foreground = ${colors.blue}
+label-unfocused-padding = 1
+
+label-visible =   
+label-visible-foreground = ${colors.blue}
+label-visible-padding = 1
+
+label-urgent =  
+label-urgent-foreground = ${colors.blue}
+label-urgent-padding = 1
+
+[module/memory]
+type = internal/memory
+interval = 1
+
+format = <label>
+format-prefix = " " 
+format-prefix-background = ${colors.dark}
+format-prefix-foreground = ${colors.yellow}
+label = " %gb_used%"
+label-foreground = ${colors.white}
+label-background = ${colors.dark}
+
+[module/network]
+type = internal/network
+interface = enp2s0
+
+interval = 1.0
+accumulate-stats = true
+unknown-as-up = true
+format-connected = <ramp-signal><label-connected>
+format-disconnected = <label-disconnected>
+format-disconnected-prefix =  
+format-disconnected-prefix-foreground = ${colors.gray}
+format-disconnect-prefix-background = ${colors.dark}
+label-connected = "%downspeed%"
+label-connected-foreground = ${colors.gray}
+label-connected-background = ${colors.dark}
+label-disconnected = "Offline"
+ramp-signal-0 = "  " 
+ramp-signal-1 = "  "
+ramp-signal-2 = "  "
+ramp-signal-3 = "  "
+ramp-signal-0-foreground = ${colors.blue}
+ramp-signal-1-foreground = ${colors.green}
+ramp-signal-2-foreground = ${colors.yellow}
+ramp-signal-3-foreground = ${colors.red}
+ramp-signal-background = ${colors.dark}
+
+[module/separator]
+type = custom/text
+content = "   " 
+content-foreground = ${colors.dark}
+content-background = ${colors.dark}
+
+[module/space]
+type = custom/text
+
+content = "   "
+content-foreground = ${colors.dark}
+content-background = ${colors.dark}
+
+[module/session]
+type = custom/text
+
+click-left = exec poweroff &
+click-right = exec reboot &
+content = "%{T1} %{T-}"
+content-background = ${colors.dark}
+content-foreground = ${colors.red}
+content-padding = 0
+
+[module/eth]
+type = internal/network
+interface = enp2s0
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-background = ${colors.dark}
+format-connected-foreground = ${colors.green}
+format-connected-prefix =" " 
+label-connected = " Online"
+
+format-disconnected = <label-disconnected>
+format-disconnected-background = ${colors.dark}
+format-disconnected-foreground = ${colors.red}
+format-disconnected-prefix = " " 
+label-disconnected = "Offline"
+
+
+[settings]
+screenchange-reload = true
+pseudo-transparency = false
