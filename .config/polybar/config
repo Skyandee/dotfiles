@@ -1,19 +1,13 @@
 [colors]
-
-color0 =  #3B4252
-red = 	  #BF616A
-orange =  #D08770
-green =   #A3BE8C
-yellow =  #EBCB8B
-blue =    #81A1C1
-magenta = #B48EAD
-cyan = 	  #88C0D0
-white =   #ECEFF4
-
-dark =    #191C23
-
-gray = #FFFFFF
-fulldark = #00000000
+bkgdcl = #161821
+color0 = #2E3440
+color1 = #E27878
+color2 = #B4BE82
+color3 = #E2A478
+color4 = #84A0C6
+color5 = #A093C7
+color6 = #89B8C2
+color7 = #ECEFF4
 
 
 [bar/main]
@@ -31,8 +25,8 @@ scroll-down = prev
 
 enable-ipc = true
 
-background = ${colors.dark}
-foreground = ${colors.dark}
+background = ${colors.bkgdcl}
+foreground = ${colors.bkgdcl}
 
 font-0 = "InconsolataGo Nerd Font:style=Bold:size=12;2"
 font-1 = "InconsolataGo Nerd Font:style=Bold:size=12;2"
@@ -40,17 +34,13 @@ font-2 = "InconsolataGo Nerd Font:style=Bold:size=13;4"
 font-3 = "InconsolataGo Nerd Font:style=Bold:size=20;4"
 
 modules-left =    space session space i3 space cpu space memory space network 
-modules-center =  game space quartus space paw space eclipse space wolfram
+modules-center =  game space quartus space wolfram
 modules-right =   eth space alsa space date 
 
-tray-background = ${colors.red}
-tray-foreground = ${colors.gray}
-tray-position = 
+tray-background = ${colors.1}
+tray-foreground = ${colors.7}
 tray-maxsize = 15
 tray-detached = false
-cursor-click = 
-cursor-scroll = 
-
 
 
 [module/alsa]
@@ -68,14 +58,14 @@ format-muted-prefix = "婢"
 label-volume = %percentage%%
 
 label-muted = " Muted"
-label-muted-foreground = ${colors.magenta}
-label-muted-background = ${colors.dark}
+label-muted-foreground = ${colors.color5}
+label-muted-background = ${colors.bkgdcl}
 
-ramp-volume-foreground = ${colors.magenta}
-ramp-volume-background = ${colors.dark}
+ramp-volume-foreground = ${colors.color5}
+ramp-volume-background = ${colors.bkgdcl}
 
-label-volume-foreground = ${colors.magenta}
-label-volume-background = ${colors.dark}
+label-volume-foreground = ${colors.color5}
+label-volume-background = ${colors.bkgdcl}
 
 ramp-volume-0 = "墳  "
 ramp-volume-1 = "墳  "
@@ -91,11 +81,11 @@ type = internal/cpu
 interval = 1
 
 format = <label>
-format-background = ${colors.dark}
+format-background = ${colors.bkgdcl}
 format-prefix = "   " 
-format-prefix-foreground = ${colors.green}
+format-prefix-foreground = ${colors.color5}
 label = "%percentage%%"
-label-foreground = ${colors.gray}
+label-foreground = ${colors.color5}
 
 [module/date]
 type = internal/date
@@ -105,49 +95,49 @@ time = "%d/%m    %T"
 ;time-alt = "%a, %b %d %H:%M:%S"
 
 format =   <label>
-format-background = ${colors.dark}
-format-foreground = ${colors.yellow}
+format-background = ${colors.bkgdcl}
+format-foreground = ${colors.color5}
 format-padding = 1
 label = %{T2}%time%%{T-}
 
-[module/paw]
-type = custom/text
+;[module/paw]
+;type = custom/text
 
-content = %{T3} %{T-}
-content-foreground = ${colors.green}
-content-background = ${colors.dark}
-click-left =  exec thunar &
-click-right = killall thunar
+;content = %{T3} %{T-}
+;content-foreground = ${colors.color5}
+;content-background = ${colors.bkgdcl}
+;click-left =  exec thunar &
+;click-right = killall thunar
 
-[module/eclipse]
-type = custom/text
-content = %{T3} %{T-}
-content-foreground = ${colors.yellow}
-content-background = ${colors.dark}
-click-left = exec eclipse &
-click-right = killall eclipse
+;[module/eclipse]
+;type = custom/text
+;content = %{T3} %{T-}
+;content-foreground = ${colors.color5}
+;content-background = ${colors.bkgdcl}
+;click-left = exec eclipse &
+;click-right = killall eclipse
 
 [module/wolfram]
 type = custom/text
 content = %{T3} %{T-}
-content-foreground = ${colors.red}
-content-background = ${colors.dark}
+content-foreground = ${colors.color5}
+content-background = ${colors.bkgdcl}
 click-left = exec mathematica &
 click-right = killall mathematica
 
 [module/quartus]
 type = custom/text
 content = %{T3} %{T-}
-content-foreground = ${colors.blue}
-content-background = ${colors.dark}
+content-foreground = ${colors.color5}
+content-background = ${colors.bkgdcl}
 click-left = exec quartus &
 click-right = killall quartus
 
 [module/game]
 type = custom/text
 content = %{T3} %{T-}
-content-foreground = ${colors.magenta}
-content-background = ${colors.dark}
+content-foreground = ${colors.color5}
+content-background = ${colors.bkgdcl}
 click-left = exec steam &
 click-right = exec ./.ae.sh &
 
@@ -156,27 +146,26 @@ type = internal/i3
 index-sort = true
 
 format = <label-state>
-format-background = ${colors.dark}
+format-background = ${colors.bkgdcl}
 
 label-mode = %mode%
 label-mode-background = #e60053
-label-mode-padding = 1
+label-mode-padding = 0
 
-label-focused =  
-;label-focused-background = ${colors.red}
-label-focused-foreground = ${colors.blue}
+label-focused = "%{T2}%{T-}"
+label-focused-foreground = ${colors.color5}
 label-focused-padding = 1
 
-label-unfocused =  
-label-unfocused-foreground = ${colors.blue}
+label-unfocused = "%{T2}%{T-}"
+label-unfocused-foreground = ${colors.color5}
 label-unfocused-padding = 1
 
-label-visible =   
-label-visible-foreground = ${colors.blue}
+label-visible = "%{T2}%{T-}"
+label-visible-foreground = ${colors.color5}
 label-visible-padding = 1
 
-label-urgent =  
-label-urgent-foreground = ${colors.blue}
+label-urgent = "%{T2}%{T-}"
+label-urgent-foreground = ${colors.color5}
 label-urgent-padding = 1
 
 [module/memory]
@@ -184,12 +173,12 @@ type = internal/memory
 interval = 1
 
 format = <label>
-format-prefix = " " 
-format-prefix-background = ${colors.dark}
-format-prefix-foreground = ${colors.yellow}
+format-prefix = "%{T2} %{T-}" 
+format-prefix-background = ${colors.bkgdcl}
+format-prefix-foreground = ${colors.color5}
 label = " %gb_used%"
-label-foreground = ${colors.white}
-label-background = ${colors.dark}
+label-foreground = ${colors.color5}
+label-background = ${colors.bckgdl}
 
 [module/network]
 type = internal/network
@@ -201,43 +190,37 @@ unknown-as-up = true
 format-connected = <ramp-signal><label-connected>
 format-disconnected = <label-disconnected>
 format-disconnected-prefix =  
-format-disconnected-prefix-foreground = ${colors.gray}
-format-disconnect-prefix-background = ${colors.dark}
+format-disconnected-prefix-foreground = ${colors.color5}
+format-disconnect-prefix-background = ${colors.bkgdcl}
 label-connected = "%downspeed%"
-label-connected-foreground = ${colors.gray}
-label-connected-background = ${colors.dark}
+label-connected-foreground = ${colors.color5}
+label-connected-background = ${colors.bkgdcl}
 label-disconnected = "Offline"
-ramp-signal-0 = "  " 
-ramp-signal-1 = "  "
-ramp-signal-2 = "  "
-ramp-signal-3 = "  "
-ramp-signal-0-foreground = ${colors.blue}
-ramp-signal-1-foreground = ${colors.green}
-ramp-signal-2-foreground = ${colors.yellow}
-ramp-signal-3-foreground = ${colors.red}
-ramp-signal-background = ${colors.dark}
+ramp-signal-0 = "%{T2}  %{T-}"
+ramp-signal-0-foreground = ${colors.color5}
+ramp-signal-background = ${colors.bkgdcl}
 
 [module/separator]
 type = custom/text
 content = "   " 
-content-foreground = ${colors.dark}
-content-background = ${colors.dark}
+content-foreground = ${colors.bkgdcl}
+content-background = ${colors.bkgdcl}
 
 [module/space]
 type = custom/text
 
 content = "   "
-content-foreground = ${colors.dark}
-content-background = ${colors.dark}
+content-foreground = ${colors.bkgdcl}
+content-background = ${colors.bkgdcl}
 
 [module/session]
 type = custom/text
 
 click-left = exec poweroff &
 click-right = exec reboot &
-content = "%{T1} %{T-}"
-content-background = ${colors.dark}
-content-foreground = ${colors.red}
+content = "%{T2} %{T-}"
+content-background = ${colors.bkgdcl}
+content-foreground = ${colors.color5}
 content-padding = 0
 
 [module/eth]
@@ -246,18 +229,21 @@ interface = enp2s0
 interval = 3.0
 
 format-connected = <label-connected>
-format-connected-background = ${colors.dark}
-format-connected-foreground = ${colors.green}
-format-connected-prefix =" " 
+format-connected-background = ${colors.bkgdcl}
+format-connected-foreground = ${colors.color5}
+format-connected-prefix =" "
+
+label-connected-foreground = ${colors.color5}
 label-connected = " Online"
 
 format-disconnected = <label-disconnected>
-format-disconnected-background = ${colors.dark}
-format-disconnected-foreground = ${colors.red}
+format-disconnected-background = ${colors.bkgdcl}
+format-disconnected-foreground = ${colors.color5}
 format-disconnected-prefix = " " 
 label-disconnected = "Offline"
 
 
 [settings]
 screenchange-reload = true
-pseudo-transparency = false
+pseudo-transparency = true
+
