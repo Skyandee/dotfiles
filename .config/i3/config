@@ -25,7 +25,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+c exec chromium
 bindsym --release Print exec --no-startup-id flameshot gui &
 bindsym $mod+x exec xournalpp
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id "rofi -show run"
 
 # change focus
 bindsym $mod+j focus left
