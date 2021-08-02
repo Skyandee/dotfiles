@@ -1,6 +1,6 @@
 neofetch
 export ZSH="/home/skyandee/.oh-my-zsh"
-ZSH_THEME="rounded"
+ZSH_THEME="Meow"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
